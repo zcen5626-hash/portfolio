@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Road Defect Monitor</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="dashboard">
+  <header class="topbar">
+    <h1>Road Defect Monitor</h1>
+    <div class="controls">
+      <label for="class-filter">
+        Class Filter
+        <select id="class-filter">
+          <option value="all">All Classes</option>
+        </select>
+      </label>
+      <label for="refresh-select">
+        Refresh Interval
+        <select id="refresh-select">
+          <option value="250">250 ms</option>
+          <option value="500">500 ms</option>
+          <option value="1000">1 sec</option>
+          <option value="2000">2 sec</option>
+          <option value="5000">5 sec</option>
+        </select>
+      </label>
+      <button type="button" id="theme-toggle">Light Theme</button>
+    </div>
+  </header>
+
+  <main class="dashboard">
+    <section class="panel frame-panel">
+      <div class="section-head">
+        <h2>Latest Frame</h2>
+        <span id="frame-source">source: --</span>
+      </div>
+      <div class="frame-wrap">
+        <img id="latest-frame" alt="Latest camera frame">
+        <div id="frame-placeholder">Waiting for frame</div>
+      </div>
+    </section>
+
+    <section class="panel summary-panel">
+      <div class="summary-row">
+        <div>
+          <span>Status</span>
+          <div id="status" class="connection offline"><i></i><strong id="status-text">Offline</strong></div>
+        </div>
+        <div>
+          <span>Last Update</span>
+          <strong id="last-update">No data</strong>
+        </div>
+      </div>
+
+      <div class="summary-row metrics">
+        <div>
+          <span>Total Defects</span>
+          <strong id="total-count" class="blue">0</strong>
+        </div>
+        <div>
+          <span>Crack</span>
+          <strong id="crack-count" class="teal">0</strong>
+        </div>
+        <div>
+          <span>Pothole</span>
+          <strong id="pothole-count" class="red">0</strong>
+        </div>
+      </div>
+
+      <div class="state-guide">
+        <p><i class="live"></i><strong>Live</strong><span>Data is current.</span></p>
+        <p><i class="stale"></i><strong>Stale</strong><span>Data is delayed.</span></p>
+        <p><i class="offline"></i><strong>Offline</strong><span>Sender is disconnected.</span></p>
+      </div>
+    </section>
+
+    <section class="panel trend-panel">
+      <div class="section-head">
+        <h2>Defect Trend</h2>
+        <span id="trend-label">All classes</span>
+      </div>
+      <canvas id="trend-canvas"></canvas>
+    </section>
+
+    <section class="panel events-panel">
+      <div class="section-head">
+        <h2>Recent Events</h2>
+        <div class="event-actions">
+          <button type="button" id="export-events">Export CSV</button>
+          <button type="button" id="clear-events">Clear History</button>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Class</th>
+              <th>Confidence</th>
+              <th>Event ID</th>
+            </tr>
+          </thead>
+          <tbody id="event-rows"></tbody>
+        </table>
+      </div>
+      <footer>
+        <span id="event-summary">0 of 0 events</span>
+        <span id="sequence">seq: --</span>
+      </footer>
+    </section>
+  </main>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+# Web 面板依赖（ROS 侧依赖另见 README）
+flask>=2.0
+pillow>=9.0

@@ -6,6 +6,7 @@
 
 | 项目 | 技术栈 | 简介 |
 |---|---|---|
+| [边缘侧道路缺陷检测与可视化](road-defect-monitor/) | ROS · Webots · YOLO · Flask | Webots 仿真下的自主导航与道路缺陷检测，含 Web 实时监控面板 |
 | [瓶盖缺陷检测系统](bottle-cap-defect-detection/) | YOLO · Streamlit · OpenCV · pandas | 摄像头取帧的瓶盖表面缺陷检测，含结果记录与统计图表 |
 
 ## 目录约定
