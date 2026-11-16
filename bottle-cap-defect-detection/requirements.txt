@@ -1,0 +1,8 @@
+streamlit>=1.30
+streamlit-webrtc>=0.47
+ultralytics>=8.0
+opencv-python>=4.8
+torch>=2.0
+pandas>=2.0
+matplotlib>=3.7
+plotly>=5.15

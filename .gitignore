@@ -1,0 +1,17 @@
+# 运行产物与本地数据
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# 运行时生成
+data/*.csv
+images/
+*.log
+
+# 编辑器和系统文件
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
